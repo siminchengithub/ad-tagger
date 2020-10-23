@@ -18,13 +18,13 @@ def init_tagger(config_path, attributes, l1):
     df_attrs_map = df_attrs_map[df_attrs_map['attribute'].isin(attributes) & (df_attrs_map['l1'] == l1)]
     tagger = RegexTagger.from_pandas(df_attrs_map)
     return tagger
-    
+print("initializing tagger")   
 tagger = init_tagger(config_path = 'data/single-multi-attributes.xlsx',
                      attributes = ['Kleur', 'Materiaal', 'Vorm', 'Lengte', 'Breedte', 'Hoogte'],
                      l1 = 'Huis en Inrichting')
-
+print('tagger initialized')
 app = Flask(__name__)
-
+print('listening')
 @app.route('/tag', methods=['GET'])
 def api_tag():
     try:
