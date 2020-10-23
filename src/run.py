@@ -5,7 +5,7 @@ import pandas as pd
 import os
 from flask import Flask, request
 import time
-from src.ad_tagger.tagger import RegexTagger
+from ad_tagger.tagger import RegexTagger
 
 def init_tagger(config_path, attributes, l1):
     df_attrs_map = pd.read_excel(config_path)
